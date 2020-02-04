@@ -81,6 +81,7 @@
 		0272C9A723E78ADC00FD000B /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C9A623E78ADC00FD000B /* CollectionExtensions.swift */; };
 		0272C9AA23E7936500FD000B /* PersonCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C9A823E7936500FD000B /* PersonCD+CoreDataClass.swift */; };
 		0272C9AB23E7936500FD000B /* PersonCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C9A923E7936500FD000B /* PersonCD+CoreDataProperties.swift */; };
+		02D8228B23E9A49A00548DB2 /* SurveyListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D8228A23E9A49A00548DB2 /* SurveyListViewModelTests.swift */; };
 		48F07E0A24F4EA66E16CC8B2 /* Pods_CroesusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DF2D9E3B2FC4DE502B18D8 /* Pods_CroesusTests.framework */; };
 		C6649F73E4522C1FF5DD3A86 /* Pods_Croesus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D53F4832D1F6C11D069112 /* Pods_Croesus.framework */; };
 /* End PBXBuildFile section */
@@ -175,6 +176,7 @@
 		0272C9A623E78ADC00FD000B /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		0272C9A823E7936500FD000B /* PersonCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonCD+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0272C9A923E7936500FD000B /* PersonCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		02D8228A23E9A49A00548DB2 /* SurveyListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListViewModelTests.swift; sourceTree = "<group>"; };
 		3488A91DD3D72A3B283C4628 /* Pods_Croesus_CroesusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Croesus_CroesusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DB071539FA6CA9C38B1D6B6 /* Pods-CroesusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CroesusTests.debug.xcconfig"; path = "Target Support Files/Pods-CroesusTests/Pods-CroesusTests.debug.xcconfig"; sourceTree = "<group>"; };
 		60E2471346C69D11616F70F0 /* Pods-Croesus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Croesus.release.xcconfig"; path = "Target Support Files/Pods-Croesus/Pods-Croesus.release.xcconfig"; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 		0264DA2423E96BE300A4AEE4 /* ModuleTests */ = {
 			isa = PBXGroup;
 			children = (
+				02D8228923E9A48100548DB2 /* SurveyList */,
 			);
 			path = ModuleTests;
 			sourceTree = "<group>";
@@ -579,6 +582,14 @@
 				0272C97D23E6E46000FD000B /* KeyboardAwareType.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		02D8228923E9A48100548DB2 /* SurveyList */ = {
+			isa = PBXGroup;
+			children = (
+				02D8228A23E9A49A00548DB2 /* SurveyListViewModelTests.swift */,
+			);
+			path = SurveyList;
 			sourceTree = "<group>";
 		};
 		A81018045C1675A00529D523 /* Frameworks */ = {
@@ -927,6 +938,7 @@
 				0264DA2F23E96FD300A4AEE4 /* NetworkServiceTests.swift in Sources */,
 				0264DA2A23E96D0C00A4AEE4 /* NetworkMock.swift in Sources */,
 				0264DA3123E988A100A4AEE4 /* ServiceLocatorTests.swift in Sources */,
+				02D8228B23E9A49A00548DB2 /* SurveyListViewModelTests.swift in Sources */,
 				0264DA3423E98BAF00A4AEE4 /* CollectionExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
