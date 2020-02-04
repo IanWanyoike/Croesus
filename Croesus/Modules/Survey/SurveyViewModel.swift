@@ -27,7 +27,9 @@ class SurveyViewModel {
         self.survey = survey
 
         self.title = BehaviorRelay(value: survey.title)
-        self.questions = BehaviorRelay(value: survey.questions.compactMap { QuestionViewModel(question: $0) })
+        self.questions = BehaviorRelay(value: survey.questions.compactMap {
+            QuestionViewModel(question: $0)
+        })
 
         let cancelSubject = PublishSubject<Void>()
         self.cancel = cancelSubject.asObserver()

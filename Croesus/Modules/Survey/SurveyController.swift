@@ -111,21 +111,19 @@ extension SurveyController {
             cell = questionCell
         case 1..<self.tableView(tableView, numberOfRowsInSection: indexPath.section):
             guard let answerCell = R.nib.answerCell(owner: tableView) else { break }
+            answerCell.optionIndex = indexPath.row - 1
             answerCell.viewModel = viewModel
             cell = answerCell
-            guard let type = viewModel.type.value else { break }
-            switch type {
-            case .checkbox, .radio:
-                answerCell.labelWrapperView.isHidden = false
-                answerCell.labelView.text = viewModel.options.value[indexPath.row - 1]
-                answerCell.textFieldWrapperView.isHidden = true
-            case .text:
-                answerCell.labelWrapperView.isHidden = true
-                answerCell.textFieldWrapperView.isHidden = false
-            }
         default:
             cell = UITableViewCell()
         }
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewModel = self.viewModel.questions.value[indexPath.section]
+        guard viewModel.type.value != .some(.text) else { return }
+        viewModel.selectedOptionIndex.accept(indexPath.row - 1)
+
     }
 }

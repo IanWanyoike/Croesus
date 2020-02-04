@@ -72,8 +72,10 @@
                     <constraint firstAttribute="bottom" secondItem="m5F-Mc-RX5" secondAttribute="bottom" id="yno-52-YfZ"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="tintColor" red="0.37647058820000001" green="0.66274509800000003" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="contentView" destination="H2p-sc-9uM" id="25x-Ng-cFn"/>
                 <outlet property="labelView" destination="OhF-XN-pQ1" id="nBB-yn-6kG"/>
                 <outlet property="labelWrapperView" destination="yao-rK-6He" id="gtp-KI-U1b"/>
                 <outlet property="textField" destination="fE2-MW-p4o" id="CMr-Uw-LBf"/>
