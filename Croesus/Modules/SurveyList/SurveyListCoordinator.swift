@@ -28,7 +28,7 @@ class SurveyListCoordinator: BaseCoordinator<Void> {
 
         surveyListViewModel.showSurvey.flatMap { [weak self] viewModel -> Observable<SurveyCoordinatorResult> in
             guard let `self` = self else { return .empty() }
-            return self.coordinate(to: SurveyCoordinator(navigationController: navigationController, surveyViewModel: viewModel))
+            return self.showSurvey(in: navigationController, with: viewModel)
         }.subscribe().disposed(by: self.disposeBag)
 
         self.window.rootViewController = navigationController
