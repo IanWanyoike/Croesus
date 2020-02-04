@@ -13,26 +13,38 @@ class CoreDataQuestionPersistor: CoreDataPersistor {}
 extension CoreDataQuestionPersistor: QuestionPersistor {
 
     func create<T>(with key: String) -> T? {
-        QuestionCD(context: self.service.context) as? T
+        guard let stored: T = self.get(for: key) else {
+            let question = QuestionCD(context: self.service.context)
+            question.id = key
+            return question as? T
+        }
+        return stored
     }
 
     func save<T>(element: T) {
-        self.service.saveContext()
-    }
-
-    func update<T>(element: T) -> T? {
-        QuestionCD(context: self.service.context) as? T
+        guard let question = element as? Question else { return }
+        self.service.context.perform {
+            guard let questionCD: QuestionCD = self.create(with: question.id) else { return }
+            questionCD.store(from: question)
+            self.service.saveContext()
+        }
     }
 
     func get<T>(for key: String) -> T? {
-        QuestionCD(context: self.service.context) as? T
+        let request: NSFetchRequest<QuestionCD> = QuestionCD.fetchRequest()
+        request.predicate = NSPredicate(format: "id = %@", key as NSString)
+        return try? self.service.context.fetch(request).first as? T
     }
 
     func fetch<T>(from offset: Int, count: Int) -> [T] {
-        [QuestionCD(context: self.service.context) as? T].compactMap { $0 }
+        []
     }
 
     func delete<T>(for key: String) -> T? {
-        QuestionCD(context: self.service.context) as? T
+        guard let model: T = self.get(for: key), let cdModel = model as? NSManagedObject else {
+            return nil
+        }
+        self.service.context.delete(cdModel)
+        return model
     }
 }

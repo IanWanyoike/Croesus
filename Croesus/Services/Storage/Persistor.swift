@@ -20,7 +20,6 @@ protocol Persistable: Codable {
 protocol PersistorType {
     func create<T>(with key: String) -> T?
     func save<T>(element: T)
-    func update<T>(element: T) -> T?
     func get<T>(for key: String) -> T?
     func fetch<T>(from offset: Int, count: Int) -> [T]
     func delete<T>(for key: String) -> T?

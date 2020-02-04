@@ -15,10 +15,14 @@ public class QuestionCD: NSManagedObject {
 
     static func build(from question: QuestionType, with context: NSManagedObjectContext) -> QuestionCD {
         let questionCD = QuestionCD(context: context)
-        questionCD.id = question.id
-        questionCD.title = question.title
-        questionCD.label = question.label
-        questionCD.type = question.type
+        questionCD.store(from: question)
         return questionCD
+    }
+
+    func store(from question: QuestionType) {
+        self.id = question.id
+        self.title = question.title
+        self.label = question.label
+        self.type = question.type
     }
 }

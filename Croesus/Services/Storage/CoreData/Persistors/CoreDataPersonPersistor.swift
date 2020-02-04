@@ -30,10 +30,6 @@ extension CoreDataPersonPersistor: PersonPersistor {
         }
     }
 
-    func update<T>(element: T) -> T? {
-        PersonCD(context: self.service.context) as? T
-    }
-
     func get<T>(for key: String) -> T? {
         let request: NSFetchRequest<PersonCD> = PersonCD.fetchRequest()
         request.predicate = NSPredicate(format: "id = %@", key as NSString)
@@ -41,10 +37,14 @@ extension CoreDataPersonPersistor: PersonPersistor {
     }
 
     func fetch<T>(from offset: Int, count: Int) -> [T] {
-        [PersonCD(context: self.service.context) as? T].compactMap { $0 }
+        []
     }
 
     func delete<T>(for key: String) -> T? {
-        PersonCD(context: self.service.context) as? T
+        guard let model: T = self.get(for: key), let cdModel = model as? NSManagedObject else {
+            return nil
+        }
+        self.service.context.delete(cdModel)
+        return model
     }
 }
