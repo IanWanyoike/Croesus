@@ -122,9 +122,12 @@ extension AvatarController: UIImagePickerControllerDelegate, UINavigationControl
             DispatchQueue.main.async { picker.dismiss(animated: true, completion: nil) }
             return
         }
-        DispatchQueue.main.async {
-            self.viewModel.avatar.accept(image.imageOrientation())
-            picker.dismiss(animated: true, completion: nil)
+        DispatchQueue.global(qos: .background).async {
+            let image = image.faceUp()
+            DispatchQueue.main.async {
+                self.viewModel.avatar.accept(image)
+                picker.dismiss(animated: true, completion: nil)
+            }
         }
     }
 }

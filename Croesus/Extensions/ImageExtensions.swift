@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIImage {
-    func imageOrientation() -> UIImage {
+    func faceUp() -> UIImage {
         guard self.imageOrientation != .up else { return self }
         var transform: CGAffineTransform = .identity
         switch self.imageOrientation {
