@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="PersonCD" representedClassName="PersonCD" syncable="YES">
+        <attribute name="avatar" optional="YES" attributeType="Binary"/>
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="idNumber" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="QuestionCD" representedClassName="QuestionCD" syncable="YES">
+        <attribute name="answer" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="label" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="survey" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SurveyCD" inverseName="questions" inverseEntity="SurveyCD"/>
+    </entity>
+    <entity name="SurveyCD" representedClassName="SurveyCD" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="synced" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="questions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionCD" inverseName="survey" inverseEntity="QuestionCD"/>
+    </entity>
+    <elements>
+        <element name="PersonCD" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="QuestionCD" positionX="-54" positionY="36" width="128" height="133"/>
+        <element name="SurveyCD" positionX="-36" positionY="45" width="128" height="118"/>
+    </elements>
+</model>
