@@ -11,7 +11,6 @@ import RxCocoa
 
 enum ControlType: String {
     case radio
-    case checkbox
     case text
 }
 
@@ -22,12 +21,14 @@ class QuestionViewModel {
     let type: BehaviorRelay<ControlType?>
     let answer: BehaviorRelay<String?>
     let options: BehaviorRelay<[String]>
+    let selectedOptionIndex: BehaviorRelay<Int>
 
     init(question: Question) {
         self.title = BehaviorRelay(value: question.title)
         self.label = BehaviorRelay(value: question.label)
         self.type = BehaviorRelay(value: ControlType(rawValue: question.type))
-        self.options = BehaviorRelay(value: question.options ?? [])
         self.answer = BehaviorRelay(value: nil)
+        self.options = BehaviorRelay(value: question.options ?? [])
+        self.selectedOptionIndex = BehaviorRelay(value: 0)
     }
 }

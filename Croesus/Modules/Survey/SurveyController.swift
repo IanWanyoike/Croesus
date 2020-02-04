@@ -94,7 +94,7 @@ extension SurveyController {
         let viewModel = self.viewModel.questions.value[section]
         guard let type = viewModel.type.value else { return 1 }
         switch type {
-        case .checkbox, .radio:
+        case .radio:
             return 1 + viewModel.options.value.count
         case .text:
             return 2

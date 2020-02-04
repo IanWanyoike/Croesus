@@ -41,7 +41,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "skip_rules": [
                                 {
                                     "answer": "", "skip": [347242]
@@ -111,7 +111,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "skip_rules": [
                                 {
                                     "answer": "", "skip": [347242]
@@ -171,7 +171,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "required": false,
                             "skip_rules": [
                                 {
@@ -232,7 +232,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "required": false,
                             "skip_rules": [
                                 {
@@ -293,7 +293,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "required": false,
                             "skip_rules": [
                                 {
@@ -354,7 +354,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "required": false,
                             "skip_rules": [
                                 {
@@ -415,7 +415,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "required": false,
                             "skip_rules": [
                                 {
@@ -476,7 +476,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "required": false,
                             "skip_rules": [
                                 {
@@ -537,7 +537,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "required": false,
                             "skip_rules": [
                                 {
@@ -598,7 +598,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "required": false,
                             "skip_rules": [
                                 {
@@ -659,7 +659,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "required": false,
                             "skip_rules": [
                                 {
@@ -720,7 +720,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "required": false,
                             "skip_rules": [
                                 {
@@ -781,7 +781,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "required": false,
                             "skip_rules": [
                                 {
@@ -842,7 +842,7 @@ struct NetworkResponseMocks {
                             "id": "347241",
                             "title": "Question 3",
                             "label": "Which of the following financial management apps have you used before?",
-                            "type": "checkbox",
+                            "type": "radio",
                             "required": false,
                             "skip_rules": [
                                 {
@@ -903,7 +903,7 @@ struct NetworkResponseMocks {
                           "id": "347241",
                           "title": "Question 3",
                           "label": "Which of the following financial management apps have you used before?",
-                          "type": "checkbox",
+                          "type": "radio",
                           "required": false,
                           "skip_rules": [
                             {
