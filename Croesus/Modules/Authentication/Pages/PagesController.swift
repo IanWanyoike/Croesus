@@ -37,7 +37,6 @@ class PagesController<T>: UIViewController, UIPageViewControllerDataSource, UIPa
         self.firstResponder = UITextField()
         self.firstResponder.isHidden = false
         super.init(nibName: nil, bundle: nil)
-        self.viewModel.controllers.forEach { $0.delegate = self }
     }
 
     required init?(coder: NSCoder) {
