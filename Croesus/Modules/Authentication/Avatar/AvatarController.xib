@@ -30,16 +30,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="vdc-Xk-JEj">
-                    <rect key="frame" x="26" y="56" width="362" height="65.5"/>
+                    <rect key="frame" x="26" y="56" width="362" height="63"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take a selfie..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7D-Ld-jax">
-                            <rect key="frame" x="0.0" y="0.0" width="362" height="32.5"/>
-                            <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="26"/>
+                            <rect key="frame" x="0.0" y="0.0" width="362" height="30"/>
+                            <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="24"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We will use this as your app avatar." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUM-F4-HhO">
-                            <rect key="frame" x="0.0" y="45.5" width="362" height="20"/>
+                            <rect key="frame" x="0.0" y="43" width="362" height="20"/>
                             <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="16"/>
                             <color key="textColor" red="0.37647058820000001" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -50,7 +50,7 @@
                     </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGg-VF-Ycj">
-                    <rect key="frame" x="24" y="157.5" width="366" height="189"/>
+                    <rect key="frame" x="24" y="155" width="366" height="185"/>
                     <subviews>
                         <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="txX-LY-yN7">
                             <rect key="frame" x="101" y="0.0" width="164" height="164"/>
@@ -66,7 +66,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obt-LL-gQ4">
-                            <rect key="frame" x="158" y="139" width="50" height="50"/>
+                            <rect key="frame" x="158" y="135" width="50" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsB-qj-pQy">
                                     <rect key="frame" x="5" y="5" width="40" height="40"/>
@@ -109,7 +109,7 @@
                         <constraint firstItem="txX-LY-yN7" firstAttribute="centerX" secondItem="vGg-VF-Ycj" secondAttribute="centerX" id="XM1-li-nqQ"/>
                         <constraint firstItem="obt-LL-gQ4" firstAttribute="centerX" secondItem="vGg-VF-Ycj" secondAttribute="centerX" id="eo3-U1-N0z"/>
                         <constraint firstItem="txX-LY-yN7" firstAttribute="top" secondItem="vGg-VF-Ycj" secondAttribute="top" id="lcJ-jR-sTx"/>
-                        <constraint firstAttribute="height" constant="189" id="uso-YY-KqD"/>
+                        <constraint firstAttribute="height" constant="185" id="uso-YY-KqD"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kMA-cd-wjQ">

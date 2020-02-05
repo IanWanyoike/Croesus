@@ -26,14 +26,14 @@ class SurveyListCoordinator: BaseCoordinator<Void> {
         let surveyListController = SurveyListController(viewModel: surveyListViewModel)
         let navigationController = UINavigationController(rootViewController: surveyListController)
 
+        self.window.rootViewController = navigationController
+        self.window.makeKeyAndVisible()
+
         surveyListViewModel.showSurvey.flatMap { [weak self] viewModel -> Observable<SurveyCoordinatorResult> in
             guard let `self` = self else { return .empty() }
             return self.showSurvey(in: navigationController, with: viewModel)
         }.subscribe().disposed(by: self.disposeBag)
-
-        self.window.rootViewController = navigationController
-        self.window.makeKeyAndVisible()
-
+        
         return .never()
     }
 
