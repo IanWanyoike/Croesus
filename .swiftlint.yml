@@ -35,6 +35,7 @@ cyclomatic_complexity:
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Carthage
   - Pods
+  - R.generated.swift
 
 ## Rules to consider enabling
 # - discouraged_object_literal # Prefer initializers over object literals - If you are using generated code for images and/or colors, you should use that code instead of literals.
