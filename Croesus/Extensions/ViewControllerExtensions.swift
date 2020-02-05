@@ -13,6 +13,17 @@ enum Position {
 }
 
 extension UIViewController {
+    func hideKeyboardOnTap() {
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard)
+        )
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
     func addNavButton(to navigationItem: UINavigationItem, position: Position, selector: Selector, tintColor: UIColor, image: UIImage?) {
         let button = UIButton(type: .custom)
         button.setImage(image?.withRenderingMode(.alwaysTemplate), for: .normal)
