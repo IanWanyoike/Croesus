@@ -2,26 +2,24 @@
 //  SurveyListController.swift
 //  Croesus
 //
-//  Created by Ian Wanyoike on 02/02/2020.
+//  Created by Ian Wanyoike on 05/02/2020.
 //  Copyright © 2020 Pocket Pot. All rights reserved.
 //
 
 import UIKit
 import RxSwift
 
-class SurveyListController: UITableViewController {
+class SurveyListController: UIViewController {
 
-    private var indicator: UIActivityIndicatorView
+    @IBOutlet weak var tableView: UITableView!
+    private let refreshControl: UIRefreshControl
 
     let viewModel: SurveyListViewModel
     let disposeBag: DisposeBag
 
     // MARK: - Initialisation
     init(viewModel: SurveyListViewModel) {
-        self.indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        self.indicator.style = .gray
-        self.indicator.hidesWhenStopped = true
-
+        self.refreshControl = UIRefreshControl()
         self.viewModel = viewModel
         self.disposeBag = DisposeBag()
         super.init(nibName: nil, bundle: nil)
@@ -34,7 +32,6 @@ class SurveyListController: UITableViewController {
         super.viewDidLoad()
 
         self.title = "Surveys"
-        self.navigationItem.largeTitleDisplayMode = .automatic
 
         let navigationBar = self.navigationController?.navigationBar
         navigationBar?.titleTextAttributes = [
@@ -45,43 +42,33 @@ class SurveyListController: UITableViewController {
         self.tableView.separatorStyle = .none
         self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.tableView.rowHeight = UITableView.automaticDimension
-        
-        self.tableView.register(
-            UINib(resource: R.nib.surveyCell),
-            forCellReuseIdentifier: R.nib.surveyCell.identifier
-        )
+        self.tableView.insertSubview(self.refreshControl, at: 0)
 
-        self.indicator.center = CGPoint(x: self.view.frame.width / 2, y: 64)
-        self.view.addSubview(self.indicator)
+        self.tableView.register(R.nib.surveyCell)
 
-        self.indicator.startAnimating()
-        self.viewModel.load().subscribe { [weak self] _ in
-            self?.indicator.stopAnimating()
-            self?.tableView.separatorStyle = .singleLine
-            self?.tableView.reloadData()
-        }.disposed(by: self.disposeBag)
-    }
-}
-
-// MARK: - Table view data source
-
-extension SurveyListController {
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        self.setupBinding()
+        self.refreshControl.sendActions(for: .valueChanged)
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.surveys.value.count
-    }
+    private func setupBinding() {
+        self.viewModel.surveys
+            .observeOn(MainScheduler.instance)
+            .do(onNext: { [weak self] surveys in
+                self?.refreshControl.endRefreshing()
+                guard !surveys.isEmpty else { return }
+                self?.tableView.separatorStyle = .singleLine
+            })
+            .bind(to: self.tableView.rx.items(cellIdentifier: R.nib.surveyCell.identifier, cellType: SurveyCell.self)) { _, viewModel, cell in
+                cell.viewModel = viewModel
+            }.disposed(by: self.disposeBag)
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = R.nib.surveyCell(owner: tableView) else { return UITableViewCell() }
-        cell.viewModel = self.viewModel.surveys.value[indexPath.row]
-        return cell
-    }
+        self.refreshControl.rx.controlEvent(.valueChanged)
+            .bind(to: self.viewModel.reload)
+            .disposed(by: self.disposeBag)
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.viewModel.selectSurvey.onNext(self.viewModel.surveys.value[indexPath.row])
+        self.tableView.rx
+            .modelSelected(SurveyViewModel.self)
+            .bind(to: self.viewModel.selectSurvey)
+            .disposed(by: self.disposeBag)
     }
 }
