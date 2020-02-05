@@ -11,7 +11,7 @@ import RxSwift
 
 class QuestionCell: UITableViewCell {
 
-    @IBOutlet weak var labelView: UILabel!
+    @IBOutlet weak private var labelView: UILabel!
 
     var viewModel: QuestionViewModel? {
         didSet {

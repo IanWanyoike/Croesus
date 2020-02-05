@@ -11,8 +11,8 @@ import RxSwift
 
 class SurveyCell: UITableViewCell {
 
-    @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var labelView: UILabel!
+    @IBOutlet weak private var iconImageView: UIImageView!
+    @IBOutlet weak private var labelView: UILabel!
 
     var viewModel: SurveyViewModel? {
         didSet {

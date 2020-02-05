@@ -16,12 +16,13 @@ struct SurveyListViewModel {
     let surveys: Observable<[SurveyViewModel]>
 
     let reload: AnyObserver<Void>
+
     let selectSurvey: AnyObserver<SurveyViewModel>
     let showSurvey: Observable<SurveyViewModel>
 
     let disposeBag: DisposeBag
 
-    init(person: PersonType, networkService: NetworkService<SurveyList> = NetworkService()) {
+    init(person: PersonType, surveyPersistor: SurveyPersistor, questionPersistor: QuestionPersistor, networkService: NetworkService<SurveyList> = NetworkService()) {
         self.person = person
 
         let reloadSubject = PublishSubject<Void>()
@@ -38,6 +39,14 @@ struct SurveyListViewModel {
                 with: .post,
                 parameters: ["person_id": person.id]
             )
-        }.map { surveyList in surveyList.surveys.compactMap { SurveyViewModel(survey: $0) } }
+        }.map { surveyList in
+            surveyList.surveys.compactMap {
+                surveyPersistor.save(element: $0)
+                return SurveyViewModel(
+                    survey: $0,
+                    questionPersistor: questionPersistor
+                )
+            }
+        }
     }
 }

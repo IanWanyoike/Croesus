@@ -23,5 +23,6 @@ struct Question: QuestionType, NetworkModelType {
     var type: String
     var skipRules: [SkipRule]?
     var options: [String]?
+    var answer: String?
 
 }

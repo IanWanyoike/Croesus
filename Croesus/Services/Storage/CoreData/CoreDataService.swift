@@ -1,5 +1,5 @@
 //
-//  CoreDataPersistor.swift
+//  CoreDataService.swift
 //  Croesus
 //
 //  Created by Ian Wanyoike on 01/02/2020.
@@ -29,6 +29,7 @@ class CoreDataService {
         }
     }
 
+    // MARK: - Methods
     func saveContext() {
         guard self.context.hasChanges else {
             os_log("Core Data Context Is Nil")
@@ -42,18 +43,4 @@ class CoreDataService {
             }
         }
     }
-}
-
-class CoreDataPersistor {
-
-    let service: CoreDataService
-
-    init(service: CoreDataService) {
-        self.service = service
-    }
-}
-
-public extension CodingUserInfoKey {
-    // Helper property to retrieve the context
-    static let managedObjectContext = CodingUserInfoKey(rawValue: "managedObjectContext")
 }

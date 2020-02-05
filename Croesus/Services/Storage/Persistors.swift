@@ -10,4 +10,6 @@ import Foundation
 
 protocol PersonPersistor: PersistorType {}
 
+protocol SurveyPersistor: PersistorType {}
+
 protocol QuestionPersistor: PersistorType {}

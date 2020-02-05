@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0219644C23EB37F500E49467 /* QuestionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0219644B23EB37F500E49467 /* QuestionList.swift */; };
+		0219644E23EB7A2100E49467 /* CoreDataSurveyPersistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0219644D23EB7A2100E49467 /* CoreDataSurveyPersistor.swift */; };
 		0260130D23E81BF000646D37 /* QuestionCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0260130723E81BF000646D37 /* QuestionCD+CoreDataClass.swift */; };
 		0260130E23E81BF000646D37 /* QuestionCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0260130823E81BF000646D37 /* QuestionCD+CoreDataProperties.swift */; };
 		0260130F23E81BF000646D37 /* SurveyCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0260130923E81BF000646D37 /* SurveyCD+CoreDataClass.swift */; };
@@ -99,6 +101,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0219644B23EB37F500E49467 /* QuestionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionList.swift; sourceTree = "<group>"; };
+		0219644D23EB7A2100E49467 /* CoreDataSurveyPersistor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSurveyPersistor.swift; sourceTree = "<group>"; };
 		0260130723E81BF000646D37 /* QuestionCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionCD+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0260130823E81BF000646D37 /* QuestionCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0260130923E81BF000646D37 /* SurveyCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SurveyCD+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -497,9 +501,10 @@
 			children = (
 				02665CA323E5EB8E009D534A /* Protocols */,
 				0260133B23E8881E00646D37 /* Person.swift */,
-				0260133D23E8883000646D37 /* Question.swift */,
-				0260133F23E8883D00646D37 /* Survey.swift */,
 				0260134123E88E2200646D37 /* SurveyList.swift */,
+				0260133F23E8883D00646D37 /* Survey.swift */,
+				0219644B23EB37F500E49467 /* QuestionList.swift */,
+				0260133D23E8883000646D37 /* Question.swift */,
 				026D4F3023EA0B1200EA6CC6 /* SkipRule.swift */,
 			);
 			path = Models;
@@ -520,6 +525,7 @@
 			children = (
 				02665CAC23E69717009D534A /* CoreDataPersonPersistor.swift */,
 				02665CB323E6BFAD009D534A /* CoreDataQuestionPersistor.swift */,
+				0219644D23EB7A2100E49467 /* CoreDataSurveyPersistor.swift */,
 			);
 			path = Persistors;
 			sourceTree = "<group>";
@@ -888,10 +894,12 @@
 				0272C9A323E754C600FD000B /* AvatarViewModel.swift in Sources */,
 				0260133223E8569E00646D37 /* QuestionType.swift in Sources */,
 				026D4F3623EA91DB00EA6CC6 /* SurveyListController.swift in Sources */,
+				0219644E23EB7A2100E49467 /* CoreDataSurveyPersistor.swift in Sources */,
 				0260132A23E83EAE00646D37 /* QuestionViewModel.swift in Sources */,
 				02665C7923E59BD2009D534A /* CoreDataService.swift in Sources */,
 				0272C98223E6EF7000FD000B /* SurveyListViewModel.swift in Sources */,
 				0260130F23E81BF000646D37 /* SurveyCD+CoreDataClass.swift in Sources */,
+				0219644C23EB37F500E49467 /* QuestionList.swift in Sources */,
 				0260130D23E81BF000646D37 /* QuestionCD+CoreDataClass.swift in Sources */,
 				02665CA523E5EBA2009D534A /* PersonType.swift in Sources */,
 				0272C98923E6F12300FD000B /* SurveyCoordinator.swift in Sources */,

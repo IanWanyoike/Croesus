@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextField.appearance().tintColor = .themeColor
 
         let serviceLocator = ServiceLocator()
-        serviceLocator.registerCoreDataServices()
+        serviceLocator.registerServices()
         self.appCoordinator = AppCoordinator(window: window, serviceLocator: serviceLocator)
         self.appCoordinator?.start().subscribe().disposed(by: self.disposeBag)
 

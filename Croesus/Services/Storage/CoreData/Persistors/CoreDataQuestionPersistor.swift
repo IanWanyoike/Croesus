@@ -8,9 +8,19 @@
 
 import CoreData
 
-class CoreDataQuestionPersistor: CoreDataPersistor {}
+class CoreDataQuestionPersistor: QuestionPersistor {
 
-extension CoreDataQuestionPersistor: QuestionPersistor {
+    // MARK: - State
+    
+    let service: CoreDataService
+
+    // MARK: - Initialization
+
+    init(service: CoreDataService) {
+        self.service = service
+    }
+
+    // MARK: - Persistor Conformance
 
     func create<T>(with key: String) -> T? {
         guard let stored: T = self.get(for: key) else {

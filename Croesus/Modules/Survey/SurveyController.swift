@@ -62,6 +62,8 @@ class SurveyController: UITableViewController {
         self.viewModel.questions.bind { [weak self] _ in
             self?.tableView.reloadData()
         }.disposed(by: self.disposeBag)
+
+        self.viewModel.loadQuestions().subscribe().disposed(by: self.disposeBag)
     }
     
     @objc func goBack() {

@@ -15,8 +15,13 @@ public class SurveyCD: NSManagedObject {
 
     static func build(from survey: SurveyType, with context: NSManagedObjectContext) -> SurveyCD {
         let surveyCD = SurveyCD(context: context)
-        surveyCD.id = survey.id
-        surveyCD.title = survey.title
+        surveyCD.store(from: survey)
         return surveyCD
+    }
+
+    func store(from survey: SurveyType) {
+        self.id = survey.id
+        self.title = survey.title
+        self.synced = survey.synced ?? false
     }
 }

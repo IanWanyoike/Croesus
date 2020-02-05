@@ -25,6 +25,10 @@ class AppCoordinator: BaseCoordinator<Void> {
             os_log("Person Persistor Type Service Not Registered")
             return Observable.never()
         }
+        guard let surveyPersistor: SurveyPersistor = self.serviceLocator.get() else {
+            os_log("Survey Persistor Type Service Not Registered")
+            return Observable.never()
+        }
         guard let questionPersistor: QuestionPersistor = self.serviceLocator.get() else {
             os_log("Question Persistor Type Service Not Registered")
             return Observable.never()
@@ -38,17 +42,26 @@ class AppCoordinator: BaseCoordinator<Void> {
             )
             return self.coordinate(to: welcomeCoordinator).flatMap { [weak self] person -> Observable<Void> in
                 guard let `self` = self else { return .never() }
-                return self.showSurveyList(with: person, persistor: questionPersistor)
+                return self.showSurveyList(
+                    with: person,
+                    surveyPersistor: surveyPersistor,
+                    questionPersistor: questionPersistor
+                )
             }
         case .some(let person):
-            return self.showSurveyList(with: person, persistor: questionPersistor)
+            return self.showSurveyList(
+                with: person,
+                surveyPersistor: surveyPersistor,
+                questionPersistor: questionPersistor
+            )
         }
     }
 
-    private func showSurveyList(with person: PersonType, persistor: QuestionPersistor) -> Observable<Void> {
+    private func showSurveyList(with person: PersonType, surveyPersistor: SurveyPersistor, questionPersistor: QuestionPersistor) -> Observable<Void> {
         let surveyCoordinator = SurveyListCoordinator(
             window: self.window,
-            persistor: persistor,
+            surveyPersistor: surveyPersistor,
+            questionPersistor: questionPersistor,
             person: person
         )
         return self.coordinate(to: surveyCoordinator)

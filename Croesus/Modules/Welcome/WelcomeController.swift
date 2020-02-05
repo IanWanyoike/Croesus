@@ -12,7 +12,7 @@ import RxSwift
 class WelcomeController: UIViewController {
 
     // MARK: - UI Outlets
-    @IBOutlet weak var getStartedButton: UIButton!
+    @IBOutlet private weak var getStartedButton: UIButton!
 
     // MARK: - State
     let viewModel: WelcomeViewModel

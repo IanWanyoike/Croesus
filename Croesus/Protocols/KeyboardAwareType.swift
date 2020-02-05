@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol KeyboardAwareType where Self: UIViewController {
-    var keyboardType: UIKeyboardType { get set }
+    var keyboardType: UIKeyboardType { get }
     var keyboardAwareConstraint: NSLayoutConstraint? { get set }
     @objc func keyboardNotification(notification: NSNotification)
 }

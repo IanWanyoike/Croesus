@@ -14,15 +14,15 @@ import Photos
 class AvatarController: UIViewController, FlowTriggerType {
 
     // MARK: - UI Outlets
-    @IBOutlet weak var selfieImageView: UIImageView!
-    @IBOutlet weak var selfieButton: UIButton! {
+    @IBOutlet weak private var selfieImageView: UIImageView!
+    @IBOutlet weak private var selfieButton: UIButton! {
         didSet {
             self.selfieButton.setImage(
                 self.selfieButton.image(for: .normal)?.withRenderingMode(.alwaysTemplate),
                 for: .normal)
         }
     }
-    @IBOutlet weak var saveButton: UIButton! {
+    @IBOutlet weak private var saveButton: UIButton! {
         didSet {
             self.saveButton.setImage(
                 self.saveButton.image(for: .normal)?.withRenderingMode(.alwaysTemplate),
@@ -66,7 +66,7 @@ class AvatarController: UIViewController, FlowTriggerType {
             .disposed(by: self.disposeBag)
     }
 
-    @IBAction func takePhoto(_ sender: UIButton) {
+    @IBAction private func takePhoto(_ sender: UIButton) {
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
             let alert = UIAlertController(
                 title: "Camera Unavailable",
@@ -97,7 +97,7 @@ class AvatarController: UIViewController, FlowTriggerType {
         }
     }
 
-    @IBAction func save(_ sender: UIButton) {
+    @IBAction private func save(_ sender: UIButton) {
         guard self.viewModel.avatar.value != nil else {
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)

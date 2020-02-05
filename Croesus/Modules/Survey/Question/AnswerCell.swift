@@ -11,10 +11,12 @@ import RxSwift
 
 class AnswerCell: UITableViewCell {
 
-    @IBOutlet weak var labelWrapperView: UIView!
-    @IBOutlet weak var labelView: UILabel!
-    @IBOutlet weak var textFieldWrapperView: UIView!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak private var labelWrapperView: UIView!
+    @IBOutlet weak private var labelView: UILabel!
+    @IBOutlet weak private var textFieldWrapperView: UIView!
+    @IBOutlet weak private var textField: UITextField! {
+        didSet { self.textField.delegate = self }
+    }
 
     var viewModel: QuestionViewModel? {
         didSet {
@@ -48,7 +50,7 @@ class AnswerCell: UITableViewCell {
     private func setupBinding(with viewModel: QuestionViewModel) {
         switch viewModel.type.value {
         case .text:
-            self.textField.rx.text.bind(to: viewModel.answer).disposed(by: self.disposeBag)
+            viewModel.answer.bind(to: self.textField.rx.text).disposed(by: self.disposeBag)
         default:
             guard let optionIndex = self.optionIndex, optionIndex < viewModel.options.value.count else { break }
             self.labelView.text = viewModel.options.value[optionIndex]
@@ -56,5 +58,11 @@ class AnswerCell: UITableViewCell {
                 self?.accessoryView?.isHidden = index != self?.optionIndex
             }.disposed(by: self.disposeBag)
         }
+    }
+}
+
+extension AnswerCell: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.viewModel?.answer.accept(textField.text)
     }
 }

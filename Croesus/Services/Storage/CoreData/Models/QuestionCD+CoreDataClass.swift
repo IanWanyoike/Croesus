@@ -24,5 +24,10 @@ public class QuestionCD: NSManagedObject {
         self.title = question.title
         self.label = question.label
         self.type = question.type
+        self.answer = question.answer
+        self.options = question.options
+        self.skipRules = question.skipRules?.compactMap {
+            try? JSONEncoder().encode($0)
+        }
     }
 }

@@ -12,13 +12,13 @@ import RxSwift
 class IdentifierController: UIViewController, KeyboardAwareType, FlowTriggerType {
 
     // MARK: - UI Outlets
-    @IBOutlet weak var identifierFieldWrapper: UIView!
-    @IBOutlet weak var identifierTextField: UITextField! {
+    @IBOutlet weak private var identifierFieldWrapper: UIView!
+    @IBOutlet weak private var identifierTextField: UITextField! {
         didSet {
             self.keyboardType = self.identifierTextField.keyboardType
         }
     }
-    @IBOutlet weak var nextButton: UIButton! {
+    @IBOutlet weak private var nextButton: UIButton! {
         didSet {
             self.nextButton.setImage(
                 self.nextButton.image(for: .normal)?.withRenderingMode(.alwaysTemplate),
@@ -51,7 +51,7 @@ class IdentifierController: UIViewController, KeyboardAwareType, FlowTriggerType
             radius: 8.0,
             width: 1.5,
             color: UIColor.black.withAlphaComponent(0.15)
-        )        
+        )
         self.switchKeyboardAware(to: true)
         self.setupUIDataBinding()
     }
@@ -62,7 +62,7 @@ class IdentifierController: UIViewController, KeyboardAwareType, FlowTriggerType
             .disposed(by: self.disposeBag)
     }
 
-    @IBAction func next(_ sender: UIButton) {
+    @IBAction private func next(_ sender: UIButton) {
         guard !self.viewModel.identifier.value.nilOrEmpty() else {
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)

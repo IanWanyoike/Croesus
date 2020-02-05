@@ -12,17 +12,23 @@ import RxSwift
 class SurveyListCoordinator: BaseCoordinator<Void> {
 
     let window: UIWindow
-    let persistor: QuestionPersistor
+    let surveyPersistor: SurveyPersistor
+    let questionPersistor: QuestionPersistor
     let person: PersonType
 
-    init(window: UIWindow, persistor: QuestionPersistor, person: PersonType) {
+    init(window: UIWindow, surveyPersistor: SurveyPersistor, questionPersistor: QuestionPersistor, person: PersonType) {
         self.window = window
-        self.persistor = persistor
+        self.surveyPersistor = surveyPersistor
+        self.questionPersistor = questionPersistor
         self.person = person
     }
 
     override func start() -> Observable<Void> {
-        let surveyListViewModel = SurveyListViewModel(person: self.person)
+        let surveyListViewModel = SurveyListViewModel(
+            person: self.person,
+            surveyPersistor: self.surveyPersistor,
+            questionPersistor: self.questionPersistor
+        )
         let surveyListController = SurveyListController(viewModel: surveyListViewModel)
         let navigationController = UINavigationController(rootViewController: surveyListController)
 
@@ -46,7 +52,7 @@ class SurveyListCoordinator: BaseCoordinator<Void> {
         ).do(onNext: { [weak self] result in
             switch result {
             case .save(let survey):
-                self?.persistor.save(element: survey)
+                self?.surveyPersistor.save(element: survey)
             default:
                 break
             }

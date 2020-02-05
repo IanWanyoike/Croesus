@@ -39,11 +39,12 @@ extension ServiceLocator: ServiceLocatorType {
     }
 }
 extension ServiceLocator {
-    func registerCoreDataServices() {
+    func registerServices() {
         let coreDataService = CoreDataService()
-        self.add(coreDataService)
         let personPersistor: PersonPersistor = CoreDataPersonPersistor(service: coreDataService)
         self.add(personPersistor)
+        let surveyPersistor: SurveyPersistor = CoreDataSurveyPersistor(service: coreDataService)
+        self.add(surveyPersistor)
         let questionPersistor: QuestionPersistor = CoreDataQuestionPersistor(service: coreDataService)
         self.add(questionPersistor)
     }

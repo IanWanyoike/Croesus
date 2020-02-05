@@ -13,16 +13,16 @@ import RxCocoa
 class NameController: UIViewController, KeyboardAwareType, FlowTriggerType {
 
     // MARK: - UI Outlets
-    @IBOutlet weak var nameFieldWrapper: UIView!
-    @IBOutlet weak var firstNameTextField: UITextField! {
+    @IBOutlet weak private var nameFieldWrapper: UIView!
+    @IBOutlet weak private var firstNameTextField: UITextField! {
         didSet {
             self.keyboardType = self.firstNameTextField.keyboardType
         }
     }
-    @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var buttonGroupHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var lastNameTextField: UITextField!
+    @IBOutlet weak private var buttonGroupHeightConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var nextButton: UIButton! {
+    @IBOutlet weak private var nextButton: UIButton! {
         didSet {
             self.nextButton.setImage(
                 self.nextButton.image(for: .normal)?.withRenderingMode(.alwaysTemplate),
@@ -69,7 +69,7 @@ class NameController: UIViewController, KeyboardAwareType, FlowTriggerType {
         ]).disposed(by: self.disposeBag)
     }
 
-    @IBAction func next(_ sender: UIButton) {
+    @IBAction private func next(_ sender: UIButton) {
         guard !self.viewModel.firstName.value.nilOrEmpty(), !self.viewModel.lastName.value.nilOrEmpty() else {
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)

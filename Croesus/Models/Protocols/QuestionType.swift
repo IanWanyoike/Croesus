@@ -14,4 +14,7 @@ protocol QuestionType {
     var title: String { get set }
     var label: String { get set }
     var type: String { get set }
+    var options: [String]? { get set }
+    var skipRules: [SkipRule]? { get set }
+    var answer: String? { get set }
 }

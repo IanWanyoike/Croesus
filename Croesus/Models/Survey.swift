@@ -14,6 +14,7 @@ struct Survey: SurveyType, NetworkModelType {
 
     var id: String
     var title: String
+    var synced: Bool?
     var questions: [Question]
 
 }

@@ -11,7 +11,7 @@ import RxSwift
 
 class SurveyListController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var tableView: UITableView!
     private let refreshControl: UIRefreshControl
 
     let viewModel: SurveyListViewModel
@@ -50,11 +50,6 @@ class SurveyListController: UIViewController {
             self.setupBinding()
             self.refreshControl.sendActions(for: .valueChanged)
         }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
     }
 
     private func setupBinding() {

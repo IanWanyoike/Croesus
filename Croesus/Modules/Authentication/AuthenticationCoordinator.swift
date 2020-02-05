@@ -28,17 +28,14 @@ class AuthenticationCoordinator: BaseCoordinator<AuthenticationCoordinatorResult
         let currentPerson: PersonType = Person(id: Constants.currentUserID, idNumber: 0)
         let viewModel = PagesViewModel<PersonType>(model: currentPerson)
         let controller = PagesController<PersonType>(viewModel: viewModel)
+        controller.viewModel.setControllers(
+            self.createControllers(
+                with: controller,
+                person: currentPerson
+            )
+        )
 
         self.navigationController.pushViewController(controller, animated: true)
-
-        DispatchQueue.main.async {
-            controller.viewModel.setControllers(
-                self.createControllers(
-                    with: controller,
-                    person: currentPerson
-                )
-            )
-        }
 
         let cancel = viewModel.didCancel.map { _ in CoordinationResult.cancel }
         let person = viewModel.didComplete.map { CoordinationResult.person($0) }

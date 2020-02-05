@@ -9,6 +9,7 @@
 import Foundation
 
 struct SkipRule: Codable {
+
     let answer: String
     let skip: [String]
 }

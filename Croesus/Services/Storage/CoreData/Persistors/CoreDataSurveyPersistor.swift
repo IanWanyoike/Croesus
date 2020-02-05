@@ -1,14 +1,14 @@
 //
-//  CoreDataPersonCDPersistor.swift
+//  CoreDataSurveyPersistor.swift
 //  Croesus
 //
-//  Created by Ian Wanyoike on 02/02/2020.
+//  Created by Ian Wanyoike on 06/02/2020.
 //  Copyright © 2020 Pocket Pot. All rights reserved.
 //
 
 import CoreData
 
-class CoreDataPersonPersistor: PersonPersistor {
+class CoreDataSurveyPersistor: SurveyPersistor {
 
     // MARK: - State
 
@@ -24,24 +24,24 @@ class CoreDataPersonPersistor: PersonPersistor {
 
     func create<T>(with key: String) -> T? {
         guard let stored: T = self.get(for: key) else {
-            let person = PersonCD(context: self.service.context)
-            person.id = key
-            return person as? T
+            let survey = SurveyCD(context: self.service.context)
+            survey.id = key
+            return survey as? T
         }
         return stored
     }
 
     func save<T>(element: T) {
-        guard let person = element as? Person else { return }
+        guard let survey = element as? Survey else { return }
         self.service.context.perform {
-            guard let personCD: PersonCD = self.create(with: person.id) else { return }
-            personCD.store(from: person)
+            guard let surveyCD: SurveyCD = self.create(with: survey.id) else { return }
+            surveyCD.store(from: survey)
             self.service.saveContext()
         }
     }
 
     func get<T>(for key: String) -> T? {
-        let request: NSFetchRequest<PersonCD> = PersonCD.fetchRequest()
+        let request: NSFetchRequest<SurveyCD> = SurveyCD.fetchRequest()
         request.predicate = NSPredicate(format: "id = %@", key as NSString)
         return try? self.service.context.fetch(request).first as? T
     }

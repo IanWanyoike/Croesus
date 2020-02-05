@@ -12,5 +12,6 @@ protocol SurveyType {
 
     var id: String { get set }
     var title: String { get set }
+    var synced: Bool? { get set }
     var questions: [Question] { get set }
 }
