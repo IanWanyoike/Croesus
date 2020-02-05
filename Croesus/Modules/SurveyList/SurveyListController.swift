@@ -45,12 +45,16 @@ class SurveyListController: UIViewController {
         self.tableView.insertSubview(self.refreshControl, at: 0)
 
         self.tableView.register(R.nib.surveyCell)
+
+        DispatchQueue.main.async {
+            self.setupBinding()
+            self.refreshControl.sendActions(for: .valueChanged)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setupBinding()
-        self.refreshControl.sendActions(for: .valueChanged)
+
     }
 
     private func setupBinding() {
