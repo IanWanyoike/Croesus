@@ -51,6 +51,9 @@
 		02665CAF23E69FA5009D534A /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02665CAE23E69FA5009D534A /* ServiceLocator.swift */; };
 		02665CB123E6BB49009D534A /* Persistors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02665CB023E6BB49009D534A /* Persistors.swift */; };
 		02665CB423E6BFAD009D534A /* CoreDataQuestionPersistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02665CB323E6BFAD009D534A /* CoreDataQuestionPersistor.swift */; };
+		026D4F3123EA0B1200EA6CC6 /* SkipRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D4F3023EA0B1200EA6CC6 /* SkipRule.swift */; };
+		026D4F3623EA91DB00EA6CC6 /* SurveyListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D4F3423EA91DB00EA6CC6 /* SurveyListController.swift */; };
+		026D4F3723EA91DB00EA6CC6 /* SurveyListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 026D4F3523EA91DB00EA6CC6 /* SurveyListController.xib */; };
 		0272C96323E6D0C800FD000B /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C96123E6D0C800FD000B /* WelcomeController.swift */; };
 		0272C96423E6D0C800FD000B /* WelcomeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0272C96223E6D0C800FD000B /* WelcomeController.xib */; };
 		0272C96623E6D0DE00FD000B /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C96523E6D0DE00FD000B /* WelcomeCoordinator.swift */; };
@@ -63,7 +66,6 @@
 		0272C97E23E6E46000FD000B /* KeyboardAwareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C97D23E6E46000FD000B /* KeyboardAwareType.swift */; };
 		0272C98023E6E5FD00FD000B /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C97F23E6E5FD00FD000B /* ViewControllerExtensions.swift */; };
 		0272C98223E6EF7000FD000B /* SurveyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C98123E6EF7000FD000B /* SurveyListViewModel.swift */; };
-		0272C98423E6F02100FD000B /* SurveyListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C98323E6F02100FD000B /* SurveyListController.swift */; };
 		0272C98723E6F11100FD000B /* SurveyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C98623E6F11100FD000B /* SurveyController.swift */; };
 		0272C98923E6F12300FD000B /* SurveyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C98823E6F12300FD000B /* SurveyCoordinator.swift */; };
 		0272C98B23E6F14300FD000B /* SurveyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C98A23E6F14300FD000B /* SurveyViewModel.swift */; };
@@ -146,6 +148,9 @@
 		02665CAE23E69FA5009D534A /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		02665CB023E6BB49009D534A /* Persistors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistors.swift; sourceTree = "<group>"; };
 		02665CB323E6BFAD009D534A /* CoreDataQuestionPersistor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataQuestionPersistor.swift; sourceTree = "<group>"; };
+		026D4F3023EA0B1200EA6CC6 /* SkipRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipRule.swift; sourceTree = "<group>"; };
+		026D4F3423EA91DB00EA6CC6 /* SurveyListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListController.swift; sourceTree = "<group>"; };
+		026D4F3523EA91DB00EA6CC6 /* SurveyListController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyListController.xib; sourceTree = "<group>"; };
 		0272C96123E6D0C800FD000B /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		0272C96223E6D0C800FD000B /* WelcomeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeController.xib; sourceTree = "<group>"; };
 		0272C96523E6D0DE00FD000B /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
@@ -158,7 +163,6 @@
 		0272C97D23E6E46000FD000B /* KeyboardAwareType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAwareType.swift; sourceTree = "<group>"; };
 		0272C97F23E6E5FD00FD000B /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		0272C98123E6EF7000FD000B /* SurveyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListViewModel.swift; sourceTree = "<group>"; };
-		0272C98323E6F02100FD000B /* SurveyListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListController.swift; sourceTree = "<group>"; };
 		0272C98623E6F11100FD000B /* SurveyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyController.swift; sourceTree = "<group>"; };
 		0272C98823E6F12300FD000B /* SurveyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyCoordinator.swift; sourceTree = "<group>"; };
 		0272C98A23E6F14300FD000B /* SurveyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewModel.swift; sourceTree = "<group>"; };
@@ -496,6 +500,7 @@
 				0260133D23E8883000646D37 /* Question.swift */,
 				0260133F23E8883D00646D37 /* Survey.swift */,
 				0260134123E88E2200646D37 /* SurveyList.swift */,
+				026D4F3023EA0B1200EA6CC6 /* SkipRule.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -558,7 +563,8 @@
 			isa = PBXGroup;
 			children = (
 				0272C97023E6DDE300FD000B /* SurveyListCoordinator.swift */,
-				0272C98323E6F02100FD000B /* SurveyListController.swift */,
+				026D4F3423EA91DB00EA6CC6 /* SurveyListController.swift */,
+				026D4F3523EA91DB00EA6CC6 /* SurveyListController.xib */,
 				0272C98123E6EF7000FD000B /* SurveyListViewModel.swift */,
 				0260131823E838AE00646D37 /* SurveyListCell */,
 			);
@@ -713,6 +719,7 @@
 				02665C6823E59156009D534A /* Quicksand-SemiBold.ttf in Resources */,
 				02665C6623E59156009D534A /* Quicksand-Bold.ttf in Resources */,
 				0272C96423E6D0C800FD000B /* WelcomeController.xib in Resources */,
+				026D4F3723EA91DB00EA6CC6 /* SurveyListController.xib in Resources */,
 				02665C6723E59156009D534A /* Quicksand-Regular.ttf in Resources */,
 				0272C99323E7391000FD000B /* IdentifierController.xib in Resources */,
 				0260132723E83DAE00646D37 /* AnswerCell.xib in Resources */,
@@ -872,7 +879,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0272C98423E6F02100FD000B /* SurveyListController.swift in Sources */,
 				0272C97B23E6E3D800FD000B /* NameController.swift in Sources */,
 				0260133A23E862B800646D37 /* NetworkResponseMocks.swift in Sources */,
 				0260133623E85A9500646D37 /* NetworkServiceType.swift in Sources */,
@@ -881,6 +887,7 @@
 				02665CB423E6BFAD009D534A /* CoreDataQuestionPersistor.swift in Sources */,
 				0272C9A323E754C600FD000B /* AvatarViewModel.swift in Sources */,
 				0260133223E8569E00646D37 /* QuestionType.swift in Sources */,
+				026D4F3623EA91DB00EA6CC6 /* SurveyListController.swift in Sources */,
 				0260132A23E83EAE00646D37 /* QuestionViewModel.swift in Sources */,
 				02665C7923E59BD2009D534A /* CoreDataService.swift in Sources */,
 				0272C98223E6EF7000FD000B /* SurveyListViewModel.swift in Sources */,
@@ -891,6 +898,7 @@
 				0272C97123E6DDE300FD000B /* SurveyListCoordinator.swift in Sources */,
 				0272C9A523E776E900FD000B /* ImageExtensions.swift in Sources */,
 				0272C9A123E7544B00FD000B /* AvatarController.swift in Sources */,
+				026D4F3123EA0B1200EA6CC6 /* SkipRule.swift in Sources */,
 				0260133423E856B800646D37 /* SurveyType.swift in Sources */,
 				02665C7023E595CB009D534A /* AppCoordinator.swift in Sources */,
 				02665C6D23E59562009D534A /* BaseCoordinator.swift in Sources */,

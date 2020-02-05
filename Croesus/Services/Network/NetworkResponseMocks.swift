@@ -44,7 +44,7 @@ struct NetworkResponseMocks {
                             "type": "radio",
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -68,7 +68,7 @@ struct NetworkResponseMocks {
                             "type": "switch",
                             "skip_rules": [
                                 {
-                                    "answer": 1, "skip": [347244]
+                                    "answer": "1", "skip": ["347244"]
                                 }
                             ]
                         },
@@ -114,7 +114,7 @@ struct NetworkResponseMocks {
                             "type": "radio",
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -175,7 +175,7 @@ struct NetworkResponseMocks {
                             "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -236,7 +236,7 @@ struct NetworkResponseMocks {
                             "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -297,7 +297,7 @@ struct NetworkResponseMocks {
                             "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -358,7 +358,7 @@ struct NetworkResponseMocks {
                             "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -419,7 +419,7 @@ struct NetworkResponseMocks {
                             "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -480,7 +480,7 @@ struct NetworkResponseMocks {
                             "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -541,7 +541,7 @@ struct NetworkResponseMocks {
                             "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -602,7 +602,7 @@ struct NetworkResponseMocks {
                             "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -663,7 +663,7 @@ struct NetworkResponseMocks {
                             "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -724,7 +724,7 @@ struct NetworkResponseMocks {
                             "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -785,7 +785,7 @@ struct NetworkResponseMocks {
                             "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -846,7 +846,7 @@ struct NetworkResponseMocks {
                             "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": [347242]
+                                    "answer": "", "skip": ["347242"]
                                 }
                             ],
                             "options": [
@@ -907,7 +907,7 @@ struct NetworkResponseMocks {
                           "required": false,
                           "skip_rules": [
                             {
-                              "answer": "", "skip": [347242]
+                              "answer": "", "skip": ["347242"]
                             }
                           ],
                           "options": [

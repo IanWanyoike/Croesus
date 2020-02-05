@@ -12,10 +12,16 @@ struct Question: QuestionType, NetworkModelType {
 
     static var baseUrl = Constants.baseURL.appendingPathComponent("surveys")
 
+    private enum CodingKeys: String, CodingKey {
+        case id, title, label, type, options
+        case skipRules = "skip_rules"
+    }
+
     var id: String
     var title: String
     var label: String
     var type: String
+    var skipRules: [SkipRule]?
     var options: [String]?
 
 }
