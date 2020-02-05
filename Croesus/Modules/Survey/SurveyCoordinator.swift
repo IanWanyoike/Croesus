@@ -27,7 +27,7 @@ class SurveyCoordinator: BaseCoordinator<SurveyCoordinatorResult> {
         let surveyController = SurveyController(viewModel: self.surveyViewModel)
 
         let cancel = self.surveyViewModel.didCancel.map { CoordinationResult.cancel }
-        let save = self.surveyViewModel.didSave.map { _ in CoordinationResult.save(self.surveyViewModel.survey) }
+        let save = self.surveyViewModel.didSave.map { CoordinationResult.save($0) }
 
         self.navigationController.pushViewController(surveyController, animated: true)
 

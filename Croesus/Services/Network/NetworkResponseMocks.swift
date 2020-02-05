@@ -40,47 +40,64 @@ struct NetworkResponseMocks {
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 5",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 6",
+                            "label": "How does Croesus compare to CashApp?",
                             "type": "text"
                         },
                         {
                             "id": "347243",
-                            "title": "Question 5",
+                            "title": "Question 7",
                             "label": "Would you recommend Croesus to a friend?",
-                            "type": "switch",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
                             "skip_rules": [
                                 {
-                                    "answer": "1", "skip": ["347244"]
+                                    "answer": "Yes", "skip": ["347244"]
                                 }
                             ]
                         },
                         {
                             "id": "347244",
-                            "title": "Question 6",
+                            "title": "Question 8",
                             "label": "What issue have you had with Croesus that disappointed you?",
                             "type": "text"
                         },
                         {
                             "id": "347245",
-                            "title": "Question 7",
+                            "title": "Question 9",
                             "label": "How can we improve to serve you better?",
                             "type": "text"
                         }
@@ -105,31 +122,60 @@ struct NetworkResponseMocks {
                             "id": "347240",
                             "title": "Question 2",
                             "label": "How did you hear about Croesus?",
+                            "required": true,
                             "type": "text"
                         },
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
                             "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
                         },
                         {
                             "id": "347244",
@@ -170,27 +216,54 @@ struct NetworkResponseMocks {
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
-                            "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
                             "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
                         },
                         {
                             "id": "347244",
@@ -231,27 +304,54 @@ struct NetworkResponseMocks {
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
-                            "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
                             "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
                         },
                         {
                             "id": "347244",
@@ -292,27 +392,54 @@ struct NetworkResponseMocks {
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
-                            "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
                             "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
                         },
                         {
                             "id": "347244",
@@ -353,27 +480,54 @@ struct NetworkResponseMocks {
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
-                            "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
                             "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
                         },
                         {
                             "id": "347244",
@@ -414,27 +568,54 @@ struct NetworkResponseMocks {
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
-                            "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
                             "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
                         },
                         {
                             "id": "347244",
@@ -475,27 +656,54 @@ struct NetworkResponseMocks {
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
-                            "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
                             "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
                         },
                         {
                             "id": "347244",
@@ -536,27 +744,54 @@ struct NetworkResponseMocks {
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
-                            "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
                             "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
                         },
                         {
                             "id": "347244",
@@ -597,27 +832,54 @@ struct NetworkResponseMocks {
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
-                            "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
                             "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
                         },
                         {
                             "id": "347244",
@@ -658,27 +920,54 @@ struct NetworkResponseMocks {
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
-                            "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
                             "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
                         },
                         {
                             "id": "347244",
@@ -719,27 +1008,54 @@ struct NetworkResponseMocks {
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
-                            "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
                             "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
                         },
                         {
                             "id": "347244",
@@ -780,27 +1096,54 @@ struct NetworkResponseMocks {
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
-                            "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
                             "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
                         },
                         {
                             "id": "347244",
@@ -841,27 +1184,54 @@ struct NetworkResponseMocks {
                         {
                             "id": "347241",
                             "title": "Question 3",
-                            "label": "Which of the following financial management apps have you used before?",
+                            "label": "Which one of the following apps have you used before?",
                             "type": "radio",
-                            "required": false,
                             "skip_rules": [
                                 {
-                                    "answer": "", "skip": ["347242"]
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
                                 }
                             ],
                             "options": [
                                 "Mint",
-                                "Spendee",
                                 "Numbrs",
                                 "CashApp",
-                                "Square"
                             ]
                         },
                         {
-                            "id": "347242",
+                            "id": "347282",
                             "title": "Question 4",
-                            "label": "How does Croesus compare to the app/s selected above?",
+                            "label": "How does Croesus compare to Mint?",
                             "type": "text"
+                        },
+                        {
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
                         },
                         {
                             "id": "347244",
@@ -882,59 +1252,86 @@ struct NetworkResponseMocks {
                     "title": "Ideas on reaching more unbanked people.",
                     "questions": [
                         {
-                          "id": "347239",
-                          "title": "Question 1",
-                          "label": "Which city are located in?",
-                          "type": "radio",
-                          "options": [
-                            "Nairobi",
-                            "Mombasa",
-                            "Kisumu"
-                          ]
+                            "id": "347239",
+                            "title": "Question 1",
+                            "label": "Which city are located in?",
+                            "type": "radio",
+                            "options": [
+                                "Nairobi",
+                                "Mombasa",
+                                "Kisumu"
+                            ]
                         },
                         {
-                          "id": "347240",
-                          "title": "Question 2",
-                          "label": "How did you hear about Croesus?",
-                          "required": true,
-                          "type": "text"
+                            "id": "347240",
+                            "title": "Question 2",
+                            "label": "How did you hear about Croesus?",
+                            "required": true,
+                            "type": "text"
                         },
                         {
-                          "id": "347241",
-                          "title": "Question 3",
-                          "label": "Which of the following financial management apps have you used before?",
-                          "type": "radio",
-                          "required": false,
-                          "skip_rules": [
-                            {
-                              "answer": "", "skip": ["347242"]
-                            }
-                          ],
-                          "options": [
-                            "Mint",
-                            "Spendee",
-                            "Numbrs",
-                            "CashApp",
-                            "Square"
-                          ]
+                            "id": "347241",
+                            "title": "Question 3",
+                            "label": "Which one of the following apps have you used before?",
+                            "type": "radio",
+                            "skip_rules": [
+                                {
+                                    "answer": "Mint", "skip": ["347272", "347262"]
+                                },
+                                {
+                                    "answer": "Numbrs", "skip": ["347282", "347262"]
+                                },
+                                {
+                                    "answer": "CashApp", "skip": ["347282", "347272"]
+                                }
+                            ],
+                            "options": [
+                                "Mint",
+                                "Numbrs",
+                                "CashApp",
+                            ]
                         },
                         {
-                          "id": "347242",
-                          "title": "Question 4",
-                          "label": "How does Croesus compare to the app/s selected above?",
-                          "type": "text"
+                            "id": "347282",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Mint?",
+                            "type": "text"
                         },
                         {
-                          "id": "347244",
-                          "title": "Question 6",
-                          "label": "What issue have you had with Croesus that disappointed you?",
-                          "type": "text"
+                            "id": "347272",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to Numbrs?",
+                            "type": "text"
                         },
                         {
-                          "id": "347245",
-                          "title": "Question 7",
-                          "label": "How can we improve to serve you better?",
-                          "type": "text"
+                            "id": "347262",
+                            "title": "Question 4",
+                            "label": "How does Croesus compare to CashApp?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347243",
+                            "title": "Question 5",
+                            "label": "Would you recommend Croesus to a friend?",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "skip_rules": [
+                                {
+                                    "answer": "No", "skip": ["347244"]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "347244",
+                            "title": "Question 6",
+                            "label": "What issue have you had with Croesus that disappointed you?",
+                            "type": "text"
+                        },
+                        {
+                            "id": "347245",
+                            "title": "Question 7",
+                            "label": "How can we improve to serve you better?",
+                            "type": "text"
                         }
                     ]
                 }

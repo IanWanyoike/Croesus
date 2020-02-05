@@ -19,22 +19,29 @@ class AnswerCell: UITableViewCell {
     var viewModel: QuestionViewModel? {
         didSet {
             guard let viewModel = self.viewModel else { return }
+            self.render(by: viewModel.type.value)
             self.setupBinding(with: viewModel)
-            guard let type = viewModel.type.value else { return }
-            self.render(by: type)
         }
     }
     var optionIndex: Int?
     lazy var disposeBag = DisposeBag()
 
-    private func render(by type: ControlType) {
+    private func render(by type: ControlType?) {
         switch type {
         case .radio:
             self.textFieldWrapperView.isHidden = true
             self.labelWrapperView.isHidden = false
+            guard self.accessoryView == nil else { break }
+            self.accessoryView = UIImageView(
+                image: R.image.tick18()?.withRenderingMode(.alwaysTemplate)
+            )
+            self.accessoryView?.isHidden = true
         case .text:
+            self.accessoryView = nil
             self.textFieldWrapperView.isHidden = false
             self.labelWrapperView.isHidden = true
+        default:
+            self.accessoryView = nil
         }
     }
 
@@ -43,14 +50,10 @@ class AnswerCell: UITableViewCell {
         case .text:
             self.textField.rx.text.bind(to: viewModel.answer).disposed(by: self.disposeBag)
         default:
-            guard let index = self.optionIndex, index < viewModel.options.value.count else { break }
-            self.labelView.text = viewModel.options.value[index]
+            guard let optionIndex = self.optionIndex, optionIndex < viewModel.options.value.count else { break }
+            self.labelView.text = viewModel.options.value[optionIndex]
             viewModel.selectedOptionIndex.bind { [weak self] index in
-                guard index == self?.optionIndex else {
-                    self?.accessoryType = .none
-                    return
-                }
-                self?.accessoryType = .checkmark
+                self?.accessoryView?.isHidden = index != self?.optionIndex
             }.disposed(by: self.disposeBag)
         }
     }

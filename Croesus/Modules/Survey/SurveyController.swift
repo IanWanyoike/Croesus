@@ -26,6 +26,7 @@ class SurveyController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardOnTap()
 
         self.title = "Survey"
 
@@ -57,10 +58,14 @@ class SurveyController: UITableViewController {
             UINib(resource: R.nib.answerCell),
             forCellReuseIdentifier: R.nib.answerCell.identifier
         )
-    }
 
+        self.viewModel.questions.bind { [weak self] _ in
+            self?.tableView.reloadData()
+        }.disposed(by: self.disposeBag)
+    }
+    
     @objc func goBack() {
-        self.viewModel.cancel.onNext(())
+        self.viewModel.onCancel()
     }
 
     @objc func save() {
@@ -124,6 +129,5 @@ extension SurveyController {
         let viewModel = self.viewModel.questions.value[indexPath.section]
         guard viewModel.type.value != .some(.text) else { return }
         viewModel.selectedOptionIndex.accept(indexPath.row - 1)
-
     }
 }

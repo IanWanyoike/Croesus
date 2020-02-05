@@ -12,10 +12,9 @@ import RxCocoa
 
 class SurveyViewModel {
 
-    let survey: SurveyType
+    private let survey: SurveyType
 
     let title: BehaviorRelay<String>
-    let questions: BehaviorRelay<[QuestionViewModel]>
 
     let cancel: AnyObserver<Void>
     let didCancel: Observable<Void>
@@ -23,13 +22,16 @@ class SurveyViewModel {
     let save: AnyObserver<SurveyType>
     let didSave: Observable<SurveyType>
 
+    let questionsToSkip: BehaviorRelay<Set<String>>
+    private var allQuestions: [QuestionViewModel] = []
+    let questions: BehaviorRelay<[QuestionViewModel]>
+
+    lazy var disposeBag = DisposeBag()
+
     init(survey: SurveyType) {
         self.survey = survey
 
         self.title = BehaviorRelay(value: survey.title)
-        self.questions = BehaviorRelay(value: survey.questions.compactMap {
-            QuestionViewModel(question: $0)
-        })
 
         let cancelSubject = PublishSubject<Void>()
         self.cancel = cancelSubject.asObserver()
@@ -38,6 +40,22 @@ class SurveyViewModel {
         let saveSubject = PublishSubject<SurveyType>()
         self.save = saveSubject.asObserver()
         self.didSave = saveSubject.asObservable()
+
+        self.questionsToSkip = BehaviorRelay(value: Set())
+        self.questions = BehaviorRelay(value: [])
+        self.allQuestions = survey.questions.map {
+            QuestionViewModel(question: $0, surveyViewModel: self)
+        }
+        self.questionsToSkip.flatMap { [weak self] shouldSkip -> Observable<[QuestionViewModel]> in
+            guard let `self` = self else { return .empty() }
+            return Observable.from(optional: self.allQuestions.filter { !shouldSkip.contains($0.id) })
+        }
+        .bind(to: self.questions)
+        .disposed(by: self.disposeBag)
+    }
+
+    func onCancel() {
+        self.cancel.onNext(())
     }
 
     func onSave() {
