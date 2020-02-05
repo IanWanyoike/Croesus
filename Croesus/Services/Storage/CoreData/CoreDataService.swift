@@ -18,30 +18,22 @@ class CoreDataService {
 
     // MARK: - State
     let container: NSPersistentContainer
-    let context: NSManagedObjectContext
+    var context: NSManagedObjectContext { self.container.viewContext }
 
     // MARK: - Initialization
     init(containerName: String = Constants.bundleName) {
         self.container = NSPersistentContainer(name: containerName)
-        self.context = self.container.viewContext
-    }
-
-    // MARK: - Methods
-    func load() -> Completable {
-        Completable.create { completable in
-            self.container.loadPersistentStores { _, error in
-                guard error == nil else {
-                    completable(.error(CoreDataError.loadStoresFailed(error?.localizedDescription)))
-                    return
-                }
-                completable(.completed)
-            }
-            return Disposables.create()
+        self.container.loadPersistentStores { _, error in
+            guard let error = error else { return }
+            os_log("Load Persistent Stores Failed: %@", error.localizedDescription)
         }
     }
 
     func saveContext() {
-        guard self.context.hasChanges else { return }
+        guard self.context.hasChanges else {
+            os_log("Core Data Context Is Nil")
+            return
+        }
         self.context.perform {
             do {
                 try self.context.save()

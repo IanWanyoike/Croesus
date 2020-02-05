@@ -25,20 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UITextField.appearance().tintColor = .themeColor
 
-        let coreDataService = CoreDataService()
-        coreDataService.load().subscribe { [weak self] event in
-            switch event {
-            case .completed:
-                guard let `self` = self else { return }
-                let serviceLocator = ServiceLocator()
-                serviceLocator.add(coreDataService)
-                serviceLocator.registerCoreDataServices(with: coreDataService)
-                self.appCoordinator = AppCoordinator(window: window, serviceLocator: serviceLocator)
-                self.appCoordinator?.start().subscribe().disposed(by: self.disposeBag)
-            case .error(let error):
-                os_log("Service Locator Register Services Error: %@", error.localizedDescription)
-            }
-        }.disposed(by: self.disposeBag)
+        let serviceLocator = ServiceLocator()
+        serviceLocator.registerCoreDataServices()
+        self.appCoordinator = AppCoordinator(window: window, serviceLocator: serviceLocator)
+        self.appCoordinator?.start().subscribe().disposed(by: self.disposeBag)
 
         return true
     }
