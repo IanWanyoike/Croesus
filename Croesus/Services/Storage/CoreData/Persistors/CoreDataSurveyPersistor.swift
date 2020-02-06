@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import RxSwift
 
 class CoreDataSurveyPersistor: SurveyPersistor {
 
@@ -46,8 +47,17 @@ class CoreDataSurveyPersistor: SurveyPersistor {
         return try? self.service.context.fetch(request).first as? T
     }
 
-    func fetch<T>(from offset: Int, count: Int) -> [T] {
-        []
+    func fetch<T>(from offset: Int, count: Int) -> Single<[T]> {
+        Single<[T]>.create { single in
+            let disposables = Disposables.create()
+            let request: NSFetchRequest<SurveyCD> = SurveyCD.fetchRequest()
+            guard let all = try? self.service.context.fetch(request) else {
+                single(.error(PersistorError.persistableNotFound))
+                return disposables
+            }
+            single(.success((all.compactMap { $0.build() } as? [T]) ?? []))
+            return disposables
+        }
     }
 
     func delete<T>(for key: String) -> T? {

@@ -24,4 +24,18 @@ public class SurveyCD: NSManagedObject {
         self.title = survey.title
         self.synced = survey.synced ?? false
     }
+
+    func build() -> Survey? {
+        guard let id = self.id, let title = self.title else { return nil }
+        var survey = Survey(
+            id: id,
+            title: title,
+            synced: self.synced,
+            questions: (self.questions ?? []).compactMap {
+                ($0 as? QuestionCD)?.build()
+            }
+        )
+
+        return survey
+    }
 }

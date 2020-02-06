@@ -21,11 +21,11 @@
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="synced" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="questions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionCD" inverseName="survey" inverseEntity="QuestionCD"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="QuestionCD" inverseName="survey" inverseEntity="QuestionCD"/>
     </entity>
     <elements>
-        <element name="PersonCD" positionX="-63" positionY="-18" width="128" height="118"/>
-        <element name="QuestionCD" positionX="-54" positionY="36" width="128" height="163"/>
-        <element name="SurveyCD" positionX="-36" positionY="45" width="128" height="103"/>
+        <element name="PersonCD" positionX="-148.33984375" positionY="-126.82421875" width="128" height="118"/>
+        <element name="QuestionCD" positionX="70.734375" positionY="55.390625" width="128" height="163"/>
+        <element name="SurveyCD" positionX="75.4140625" positionY="-204.609375" width="128" height="103"/>
     </elements>
 </model>

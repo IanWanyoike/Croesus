@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import RxSwift
 
 class CoreDataPersonPersistor: PersonPersistor {
 
@@ -46,8 +47,8 @@ class CoreDataPersonPersistor: PersonPersistor {
         return try? self.service.context.fetch(request).first as? T
     }
 
-    func fetch<T>(from offset: Int, count: Int) -> [T] {
-        []
+    func fetch<T>(from offset: Int, count: Int) -> Single<[T]> {
+        Single.just([])
     }
 
     func delete<T>(for key: String) -> T? {

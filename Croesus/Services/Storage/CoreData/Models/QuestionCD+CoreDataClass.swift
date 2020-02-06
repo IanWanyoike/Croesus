@@ -30,4 +30,18 @@ public class QuestionCD: NSManagedObject {
             try? JSONEncoder().encode($0)
         }
     }
+
+    func build() -> Question? {
+        guard let id = self.id, let title = self.title,
+            let label = self.label, let type = self.type else {
+            return nil
+        }
+        var question = Question(id: id, title: title, label: label, type: type)
+        question.answer = self.answer
+        question.options = self.options
+        question.skipRules = self.skipRules?.compactMap {
+            try? JSONDecoder().decode(SkipRule.self, from: $0)
+        }
+        return question
+    }
 }

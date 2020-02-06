@@ -21,6 +21,6 @@ protocol PersistorType {
     func create<T>(with key: String) -> T?
     func save<T>(element: T)
     func get<T>(for key: String) -> T?
-    func fetch<T>(from offset: Int, count: Int) -> [T]
+    func fetch<T>(from offset: Int, count: Int) -> Single<[T]>
     func delete<T>(for key: String) -> T?
 }
