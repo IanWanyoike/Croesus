@@ -20,6 +20,7 @@ public class QuestionCD: NSManagedObject {
     }
 
     func store(from question: QuestionType) {
+        self.parentId = question.parentId
         self.id = question.id
         self.title = question.title
         self.label = question.label
@@ -37,6 +38,7 @@ public class QuestionCD: NSManagedObject {
             return nil
         }
         var question = Question(id: id, title: title, label: label, type: type)
+        question.parentId = self.parentId
         question.answer = self.answer
         question.options = self.options
         question.skipRules = self.skipRules?.compactMap {

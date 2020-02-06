@@ -17,6 +17,7 @@ struct Question: QuestionType, NetworkModelType {
         case skipRules = "skip_rules"
     }
 
+    var parentId: String?
     var id: String
     var title: String
     var label: String

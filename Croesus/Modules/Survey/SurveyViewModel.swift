@@ -51,8 +51,10 @@ class SurveyViewModel {
         self.questions = BehaviorRelay(value: [])
 
         self.allQuestions = survey.questions.map {
-            questionPersistor.save(element: $0)
-            return QuestionViewModel(question: $0, surveyViewModel: self)
+            var question = $0
+            question.parentId = self.survey.id
+            questionPersistor.save(element: question)
+            return QuestionViewModel(question: question, surveyViewModel: self)
         }
         self.questionsToSkip.flatMap { [weak self] shouldSkip -> Observable<[QuestionViewModel]> in
             guard let `self` = self else { return .empty() }
@@ -63,12 +65,20 @@ class SurveyViewModel {
     }
 
     func loadQuestions() -> Completable {
-        self.networkService.request(
+        // TODO: - Combine These Local Questions With Fetched Questions
+        let single: Single<[QuestionType]> = questionPersistor.fetch(parentId: self.survey.id)
+        single.map { surveys in
+            surveys.map { QuestionViewModel(question: $0, surveyViewModel: self) }
+        }
+
+        return self.networkService.request(
             from: SurveyList.baseUrl.appendingPathComponent("\(self.survey.id)/questions")
         ).map { [weak self] in
             guard let `self` = self else { return }
             let list: [QuestionViewModel] = $0.questions.compactMap { question in
                 guard !self.allQuestions.contains(where: { $0.id == question.id }) else { return nil }
+                var question = question
+                question.parentId = self.survey.id
                 self.questionPersistor.save(element: question)
                 return QuestionViewModel(question: question, surveyViewModel: self)
             }

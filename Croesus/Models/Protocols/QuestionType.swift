@@ -9,7 +9,8 @@
 import Foundation
 
 protocol QuestionType {
-    
+
+    var parentId: String? { get set }
     var id: String { get set }
     var title: String { get set }
     var label: String { get set }

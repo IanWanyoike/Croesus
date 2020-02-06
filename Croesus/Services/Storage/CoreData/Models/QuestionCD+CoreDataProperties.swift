@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension QuestionCD {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<QuestionCD> {
@@ -24,6 +23,6 @@ extension QuestionCD {
     @NSManaged public var skipRules: [Data]?
     @NSManaged public var title: String?
     @NSManaged public var type: String?
-    @NSManaged public var survey: SurveyCD?
+    @NSManaged public var parentId: String?
 
 }

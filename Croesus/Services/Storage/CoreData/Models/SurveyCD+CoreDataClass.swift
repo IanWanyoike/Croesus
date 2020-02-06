@@ -27,15 +27,12 @@ public class SurveyCD: NSManagedObject {
 
     func build() -> Survey? {
         guard let id = self.id, let title = self.title else { return nil }
-        var survey = Survey(
+        let survey = Survey(
             id: id,
             title: title,
             synced: self.synced,
-            questions: (self.questions ?? []).compactMap {
-                ($0 as? QuestionCD)?.build()
-            }
+            questions: []
         )
-
         return survey
     }
 }

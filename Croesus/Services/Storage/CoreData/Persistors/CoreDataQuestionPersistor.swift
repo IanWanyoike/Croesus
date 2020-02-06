@@ -47,10 +47,13 @@ class CoreDataQuestionPersistor: QuestionPersistor {
         return try? self.service.context.fetch(request).first as? T
     }
 
-    func fetch<T>(from offset: Int, count: Int) -> Single<[T]> {
+    func fetch<T>(parentId: String?) -> Single<[T]> {
         Single<[T]>.create { single in
             let disposables = Disposables.create()
             let request: NSFetchRequest<QuestionCD> = QuestionCD.fetchRequest()
+            parentId.map {
+                request.predicate = NSPredicate(format: "parentId = %@", $0 as NSString)
+            }
             guard let all = try? self.service.context.fetch(request) else { single(.error(PersistorError.persistableNotFound))
                 return disposables
             }

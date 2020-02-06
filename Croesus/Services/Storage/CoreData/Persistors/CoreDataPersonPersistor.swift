@@ -47,7 +47,7 @@ class CoreDataPersonPersistor: PersonPersistor {
         return try? self.service.context.fetch(request).first as? T
     }
 
-    func fetch<T>(from offset: Int, count: Int) -> Single<[T]> {
+    func fetch<T>(parentId: String?) -> Single<[T]> {
         Single.just([])
     }
 

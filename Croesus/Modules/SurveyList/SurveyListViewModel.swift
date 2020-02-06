@@ -34,6 +34,17 @@ struct SurveyListViewModel {
 
         self.disposeBag = DisposeBag()
 
+        // TODO: - Combine These Local Surveys With Fetched Surveys
+        let single: Single<[SurveyType]> = surveyPersistor.fetch(parentId: nil)
+        single.map { surveys in
+            surveys.map {
+                SurveyViewModel(
+                    survey: $0,
+                    questionPersistor: questionPersistor
+                )
+            }
+        }
+
         self.surveys = reloadSubject.flatMapLatest { _ in
             networkService.request(
                 with: .post,
