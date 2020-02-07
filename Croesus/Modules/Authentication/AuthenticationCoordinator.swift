@@ -43,13 +43,16 @@ class AuthenticationCoordinator: BaseCoordinator<AuthenticationCoordinatorResult
         return Observable.merge(cancel, person)
             .take(1)
             .do(onNext: { [weak self] result in
+                guard let `self` = self else { return }
                 switch result {
                 case .person(let person):
-                    self?.personPersistor.save(element: person)
+                    self.personPersistor.save(element: person)
+                        .subscribe()
+                        .disposed(by: self.disposeBag)
                 case .cancel:
                     break
                 }
-                self?.navigationController.popViewController(animated: true)
+                self.navigationController.popViewController(animated: true)
             })
     }
 

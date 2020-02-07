@@ -32,12 +32,22 @@ class CoreDataSurveyPersistor: SurveyPersistor {
         return stored
     }
 
-    func save<T>(element: T) {
-        guard let survey = element as? Survey else { return }
-        self.service.context.perform {
-            guard let surveyCD: SurveyCD = self.create(with: survey.id) else { return }
-            surveyCD.store(from: survey)
-            self.service.saveContext()
+    @discardableResult
+    func save<T>(element: T) -> Completable {
+        guard let survey = element as? SurveyType else {
+            return Completable.error(PersistorError.invalidType)
+        }
+        return Completable.create { completable in
+            self.service.context.perform {
+                guard let surveyCD: SurveyCD = self.create(with: survey.id) else {
+                    completable(.error(PersistorError.createFailed))
+                    return
+                }
+                surveyCD.store(from: survey)
+                self.service.saveContext()
+                completable(.completed)
+            }
+            return Disposables.create()
         }
     }
 
@@ -55,7 +65,7 @@ class CoreDataSurveyPersistor: SurveyPersistor {
                 request.predicate = NSPredicate(format: "parentId = %@", $0 as NSString)
             }
             guard let all = try? self.service.context.fetch(request) else {
-                single(.error(PersistorError.persistableNotFound))
+                single(.error(PersistorError.notFound))
                 return disposables
             }
             single(.success((all.compactMap { $0.build() } as? [T]) ?? []))

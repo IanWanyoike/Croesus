@@ -12,5 +12,5 @@ struct SurveyList: NetworkModelType {
 
     static var baseUrl = Constants.baseURL.appendingPathComponent("surveys")
 
-    let surveys: [Survey]
+    var surveys: [Survey] = []
 }

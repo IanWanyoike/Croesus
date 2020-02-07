@@ -10,7 +10,8 @@ import RxSwift
 
 enum PersistorError: Error {
     case invalidType
-    case persistableNotFound
+    case createFailed
+    case notFound
 }
 
 protocol Persistable: Codable {
@@ -19,7 +20,8 @@ protocol Persistable: Codable {
 
 protocol PersistorType {
     func create<T>(with key: String) -> T?
-    func save<T>(element: T)
+    @discardableResult
+    func save<T>(element: T) -> Completable
     func get<T>(for key: String) -> T?
     func fetch<T>(parentId: String?) -> Single<[T]>
     func delete<T>(for key: String) -> T?

@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import os.log
 
 class SurveyListCoordinator: BaseCoordinator<Void> {
 
@@ -50,9 +51,17 @@ class SurveyListCoordinator: BaseCoordinator<Void> {
                 surveyViewModel: viewModel
             )
         ).do(onNext: { [weak self] result in
+            guard let `self` = self else { return }
             switch result {
             case .save(let survey):
-                self?.surveyPersistor.save(element: survey)
+                self.surveyPersistor.save(element: survey)
+                    .andThen(viewModel.sync())
+                    .catchError { error in
+                        os_log("Sync Error (Because of unavailable endpoint): %@", error.localizedDescription)
+                        return .empty()
+                    }
+                    .subscribe()
+                    .disposed(by: self.disposeBag)
             default:
                 break
             }

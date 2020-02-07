@@ -35,13 +35,19 @@ class QuestionViewModel {
         self.type = BehaviorRelay(value: ControlType(rawValue: question.type))
         let options = question.options ?? []
         self.options = BehaviorRelay(value: options)
+        self.skipRules = question.skipRules ?? []
+
+        let selectedOptionIndex: Int
+        if self.type.value == .some(.radio), let answer = question.answer {
+            selectedOptionIndex = options.firstIndex(of: answer) ?? 0
+        } else {
+            selectedOptionIndex = 0
+        }
+        self.selectedOptionIndex = BehaviorRelay(value: selectedOptionIndex)
 
         self.answer = BehaviorRelay(
-            value: question.answer ?? (options.isEmpty ? nil : options[0])
+            value: question.answer ?? (options.isEmpty ? nil : options[selectedOptionIndex])
         )
-
-        self.skipRules = question.skipRules ?? []
-        self.selectedOptionIndex = BehaviorRelay(value: 0)
 
         self.selectedOptionIndex.bind { [weak self] index in
             guard let `self` = self, index < self.options.value.count else { return }
@@ -51,7 +57,9 @@ class QuestionViewModel {
         self.answer.bind { [weak self] answer in
             guard let `self` = self else { return }
             self.question.answer = answer
-            surveyViewModel.questionPersistor.save(element: self.question)
+            surveyViewModel.questionPersistor
+                .save(element: self.question)
+                .subscribe().disposed(by: self.disposeBag)
 
             guard self.type.value == .some(.radio), !self.skipRules.isEmpty else { return }
 

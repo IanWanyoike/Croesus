@@ -32,12 +32,22 @@ class CoreDataPersonPersistor: PersonPersistor {
         return stored
     }
 
-    func save<T>(element: T) {
-        guard let person = element as? Person else { return }
-        self.service.context.perform {
-            guard let personCD: PersonCD = self.create(with: person.id) else { return }
-            personCD.store(from: person)
-            self.service.saveContext()
+    @discardableResult
+    func save<T>(element: T) -> Completable {
+        guard let person = element as? PersonType else {
+            return Completable.error(PersistorError.invalidType)
+        }
+        return Completable.create { completable in
+            self.service.context.perform {
+                guard let personCD: PersonCD = self.create(with: person.id) else {
+                    completable(.error(PersistorError.createFailed))
+                    return
+                }
+                personCD.store(from: person)
+                self.service.saveContext()
+                completable(.completed)
+            }
+            return Disposables.create()
         }
     }
 

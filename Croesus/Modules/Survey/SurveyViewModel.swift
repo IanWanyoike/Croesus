@@ -25,9 +25,8 @@ class SurveyViewModel {
     let didSave: Observable<SurveyType>
 
     let questionsToSkip: BehaviorRelay<Set<String>>
-    private var allQuestions: [QuestionViewModel] = [] {
-        didSet { self.allQuestions.sort(by: { $0.id < $1.id }) }
-    }
+    private var allQuestions: Set<QuestionViewModel> = Set()
+
     let questions: BehaviorRelay<[QuestionViewModel]>
 
     lazy var disposeBag = DisposeBag()
@@ -50,41 +49,50 @@ class SurveyViewModel {
         self.questionsToSkip = BehaviorRelay(value: Set())
         self.questions = BehaviorRelay(value: [])
 
-        self.allQuestions = survey.questions.map {
-            var question = $0
-            question.parentId = self.survey.id
-            questionPersistor.save(element: question)
-            return QuestionViewModel(question: question, surveyViewModel: self)
+        self.allQuestions = Set()
+    }
+
+    func loadQuestions() -> Completable {
+        return self.networkService.request(
+            from: SurveyList.baseUrl.appendingPathComponent("\(self.survey.id)/questions")
+        ).catchErrorJustReturn(QuestionList())
+        .map { [weak self] list -> Completable in
+            guard let `self` = self else { return .never() }
+            guard !list.questions.isEmpty else { return .empty() }
+            let questionsToSave = list.questions.map { question -> Completable in
+                var question = question
+                question.parentId = self.survey.id
+                return self.questionPersistor.save(element: question)
+            }
+            return Completable.concat(questionsToSave)
+        }.flatMapCompletable { [weak self] saveCompletable -> Completable in
+            guard let `self` = self else { return .never() }
+            let single: Single<[QuestionType]> = self.questionPersistor.fetch(parentId: self.survey.id)
+            return saveCompletable.andThen(single.map { surveys in
+                surveys.map { QuestionViewModel(question: $0, surveyViewModel: self) }
+            }.map {
+                self.allQuestions.formUnion($0)
+                self.questionsToSkip.accept(self.questionsToSkip.value)
+            }.asCompletable())
         }
+    }
+
+    func setupBinding() {
         self.questionsToSkip.flatMap { [weak self] shouldSkip -> Observable<[QuestionViewModel]> in
-            guard let `self` = self else { return .empty() }
-            return Observable.from(optional: self.allQuestions.filter { !shouldSkip.contains($0.id) })
+            guard let `self` = self else { return .never() }
+            return Observable.from(optional: Array(self.allQuestions.filter { !shouldSkip.contains($0.id) }))
         }
+        .map { $0.sorted(by: { $0.id < $1.id }) }
         .bind(to: self.questions)
         .disposed(by: self.disposeBag)
     }
 
-    func loadQuestions() -> Completable {
-        // TODO: - Combine These Local Questions With Fetched Questions
-        let single: Single<[QuestionType]> = questionPersistor.fetch(parentId: self.survey.id)
-        single.map { surveys in
-            surveys.map { QuestionViewModel(question: $0, surveyViewModel: self) }
+    func sync() -> Completable {
+        let list: Single<[Question]> = self.questionPersistor.fetch(parentId: self.survey.id)
+        return list.flatMapCompletable { questions -> Completable in
+            guard let parameters = try? QuestionList(questions: questions).asDictionary() else { return .empty() }
+            return self.networkService.request(with: .post, parameters: parameters).asCompletable()
         }
-
-        return self.networkService.request(
-            from: SurveyList.baseUrl.appendingPathComponent("\(self.survey.id)/questions")
-        ).map { [weak self] in
-            guard let `self` = self else { return }
-            let list: [QuestionViewModel] = $0.questions.compactMap { question in
-                guard !self.allQuestions.contains(where: { $0.id == question.id }) else { return nil }
-                var question = question
-                question.parentId = self.survey.id
-                self.questionPersistor.save(element: question)
-                return QuestionViewModel(question: question, surveyViewModel: self)
-            }
-            self.allQuestions.append(contentsOf: list)
-            self.questions.accept(self.allQuestions.filter { !self.questionsToSkip.value.contains($0.id) })
-        }.asCompletable()
     }
 
     func onCancel() {

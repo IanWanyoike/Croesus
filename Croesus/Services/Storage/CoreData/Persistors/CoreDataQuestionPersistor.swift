@@ -32,12 +32,22 @@ class CoreDataQuestionPersistor: QuestionPersistor {
         return stored
     }
 
-    func save<T>(element: T) {
-        guard let question = element as? Question else { return }
-        self.service.context.perform {
-            guard let questionCD: QuestionCD = self.create(with: question.id) else { return }
-            questionCD.store(from: question)
-            self.service.saveContext()
+    @discardableResult
+    func save<T>(element: T) -> Completable {
+        guard let question = element as? QuestionType else {
+            return .error(PersistorError.invalidType)
+        }
+        return Completable.create { completable in
+            self.service.context.perform {
+                guard let questionCD: QuestionCD = self.create(with: question.id) else {
+                    completable(.error(PersistorError.createFailed))
+                    return
+                }
+                questionCD.store(from: question)
+                self.service.saveContext()
+                completable(.completed)
+            }
+            return Disposables.create()
         }
     }
 
@@ -54,7 +64,7 @@ class CoreDataQuestionPersistor: QuestionPersistor {
             parentId.map {
                 request.predicate = NSPredicate(format: "parentId = %@", $0 as NSString)
             }
-            guard let all = try? self.service.context.fetch(request) else { single(.error(PersistorError.persistableNotFound))
+            guard let all = try? self.service.context.fetch(request) else { single(.error(PersistorError.notFound))
                 return disposables
             }
             single(.success((all.compactMap { $0.build() } as? [T]) ?? []))

@@ -12,5 +12,5 @@ struct QuestionList: NetworkModelType {
 
     static var baseUrl = SurveyList.baseUrl
 
-    let questions: [Question]
+    var questions: [Question] = []
 }
