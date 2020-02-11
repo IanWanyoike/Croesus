@@ -13,7 +13,7 @@ import Foundation
 import Quick
 import Nimble
 
-class CollectionextensionTests: QuickSpec {
+class CollectionExtensionTests: QuickSpec {
     override func spec() {
         describe("Nil Or Empty") {
             it("Returns True If Optional Collection Is Nil Or Empty") {

@@ -54,6 +54,7 @@
 		02665CAF23E69FA5009D534A /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02665CAE23E69FA5009D534A /* ServiceLocator.swift */; };
 		02665CB123E6BB49009D534A /* Persistors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02665CB023E6BB49009D534A /* Persistors.swift */; };
 		02665CB423E6BFAD009D534A /* CoreDataQuestionPersistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02665CB323E6BFAD009D534A /* CoreDataQuestionPersistor.swift */; };
+		0268B20723F16F0000925221 /* PersistorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0268B20623F16F0000925221 /* PersistorMock.swift */; };
 		026D4F3123EA0B1200EA6CC6 /* SkipRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D4F3023EA0B1200EA6CC6 /* SkipRule.swift */; };
 		026D4F3623EA91DB00EA6CC6 /* SurveyListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D4F3423EA91DB00EA6CC6 /* SurveyListController.swift */; };
 		026D4F3723EA91DB00EA6CC6 /* SurveyListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 026D4F3523EA91DB00EA6CC6 /* SurveyListController.xib */; };
@@ -154,6 +155,7 @@
 		02665CAE23E69FA5009D534A /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		02665CB023E6BB49009D534A /* Persistors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistors.swift; sourceTree = "<group>"; };
 		02665CB323E6BFAD009D534A /* CoreDataQuestionPersistor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataQuestionPersistor.swift; sourceTree = "<group>"; };
+		0268B20623F16F0000925221 /* PersistorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistorMock.swift; sourceTree = "<group>"; };
 		026D4F3023EA0B1200EA6CC6 /* SkipRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipRule.swift; sourceTree = "<group>"; };
 		026D4F3423EA91DB00EA6CC6 /* SurveyListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListController.swift; sourceTree = "<group>"; };
 		026D4F3523EA91DB00EA6CC6 /* SurveyListController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyListController.xib; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 		02665C4723E58C74009D534A /* CroesusTests */ = {
 			isa = PBXGroup;
 			children = (
+				0268B20523F16EE300925221 /* Mocks */,
 				0264DA3223E98B6D00A4AEE4 /* ExtensionTests */,
 				0264DA2423E96BE300A4AEE4 /* ModuleTests */,
 				02665C7C23E5A460009D534A /* ServicesTests */,
@@ -530,6 +533,14 @@
 				0219644D23EB7A2100E49467 /* CoreDataSurveyPersistor.swift */,
 			);
 			path = Persistors;
+			sourceTree = "<group>";
+		};
+		0268B20523F16EE300925221 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				0268B20623F16F0000925221 /* PersistorMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		0272C95F23E6D07800FD000B /* Welcome */ = {
@@ -960,6 +971,7 @@
 				0264DA3123E988A100A4AEE4 /* ServiceLocatorTests.swift in Sources */,
 				02D8228B23E9A49A00548DB2 /* SurveyListViewModelTests.swift in Sources */,
 				0264DA3423E98BAF00A4AEE4 /* CollectionExtensionTests.swift in Sources */,
+				0268B20723F16F0000925221 /* PersistorMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,7 +19,7 @@ class NetworkService<Model: NetworkModelType>: NetworkServiceType {
         } else if T.self == QuestionList.self {
             data = NetworkResponseMocks.questionsData
         }
-        guard let json = data else { return Single.never() }
+        guard let json = data else { return Single.error(NetworkError.invalidResponse) }
         do {
             return Single.just(try JSONDecoder().decode(T.self, from: json))
         } catch {
