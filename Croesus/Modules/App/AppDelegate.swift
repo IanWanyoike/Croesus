@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import Firebase
 import os.log
 
 @UIApplicationMain
@@ -25,8 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UITextField.appearance().tintColor = .themeColor
 
+        FirebaseApp.configure()
+
         let serviceLocator = ServiceLocator()
         serviceLocator.registerServices()
+
         self.appCoordinator = AppCoordinator(window: window, serviceLocator: serviceLocator)
         self.appCoordinator?.start().subscribe().disposed(by: self.disposeBag)
 
