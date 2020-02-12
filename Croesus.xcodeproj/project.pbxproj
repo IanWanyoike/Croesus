@@ -88,7 +88,6 @@
 		0272C9AA23E7936500FD000B /* PersonCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C9A823E7936500FD000B /* PersonCD+CoreDataClass.swift */; };
 		0272C9AB23E7936500FD000B /* PersonCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272C9A923E7936500FD000B /* PersonCD+CoreDataProperties.swift */; };
 		02D8228B23E9A49A00548DB2 /* SurveyListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D8228A23E9A49A00548DB2 /* SurveyListViewModelTests.swift */; };
-		02DE919F23F4448E002CAE1F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02DE919E23F4448E002CAE1F /* GoogleService-Info.plist */; };
 		48F07E0A24F4EA66E16CC8B2 /* Pods_CroesusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DF2D9E3B2FC4DE502B18D8 /* Pods_CroesusTests.framework */; };
 		C6649F73E4522C1FF5DD3A86 /* Pods_Croesus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D53F4832D1F6C11D069112 /* Pods_Croesus.framework */; };
 /* End PBXBuildFile section */
@@ -190,7 +189,6 @@
 		0272C9A823E7936500FD000B /* PersonCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonCD+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0272C9A923E7936500FD000B /* PersonCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		02D8228A23E9A49A00548DB2 /* SurveyListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListViewModelTests.swift; sourceTree = "<group>"; };
-		02DE919E23F4448E002CAE1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3488A91DD3D72A3B283C4628 /* Pods_Croesus_CroesusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Croesus_CroesusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DB071539FA6CA9C38B1D6B6 /* Pods-CroesusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CroesusTests.debug.xcconfig"; path = "Target Support Files/Pods-CroesusTests/Pods-CroesusTests.debug.xcconfig"; sourceTree = "<group>"; };
 		60E2471346C69D11616F70F0 /* Pods-Croesus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Croesus.release.xcconfig"; path = "Target Support Files/Pods-Croesus/Pods-Croesus.release.xcconfig"; sourceTree = "<group>"; };
@@ -466,7 +464,6 @@
 			isa = PBXGroup;
 			children = (
 				02665C3F23E58C73009D534A /* Info.plist */,
-				02DE919E23F4448E002CAE1F /* GoogleService-Info.plist */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -735,7 +732,6 @@
 			files = (
 				0272C9A023E7544B00FD000B /* AvatarController.xib in Resources */,
 				0260132323E83D9A00646D37 /* QuestionCell.xib in Resources */,
-				02DE919F23F4448E002CAE1F /* GoogleService-Info.plist in Resources */,
 				0260131C23E838E200646D37 /* SurveyCell.xib in Resources */,
 				0272C97A23E6E3D800FD000B /* NameController.xib in Resources */,
 				02665C3E23E58C73009D534A /* LaunchScreen.storyboard in Resources */,
