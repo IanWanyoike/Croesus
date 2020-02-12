@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UITextField.appearance().tintColor = .themeColor
 
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
 
         let serviceLocator = ServiceLocator()
         serviceLocator.registerServices()
