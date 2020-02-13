@@ -1,6 +1,6 @@
 # [Croesus iOS](https://github.com/IanWanyoike/Croesus)
 
-<img height="300px" src="/Screenshots/all.png?raw=true">
+<img src="/Screenshots/all.png?raw=true">
 
 ## Build Instructions
     
